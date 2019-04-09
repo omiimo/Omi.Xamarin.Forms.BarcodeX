@@ -6,7 +6,7 @@
     <ContentPage.Content>
         <Grid VerticalOptions="Fill">
 
-            <controls:BarcodeScanner x:Name="barcodeScan"
+            <controls:BarcodeScanner x:Name="barcodeScan" BarcodeType="DataMatrix"
                               VerticalOptions="Fill"
                                   IsScannerActive="True"
                                   BarcodeChanged="BarcodeScan_BarcodeChanged"

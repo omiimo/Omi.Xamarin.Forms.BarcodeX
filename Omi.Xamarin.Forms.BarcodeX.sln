@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.539
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omi.Xamarin.Forms.BarcodeX", "Omi.Xamarin.Forms.BarcodeX\Omi.Xamarin.Forms.BarcodeX.csproj", "{6EB66A63-7702-4D64-8715-DC09A8D4EFCB}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Omi.Xamarin.Forms.BarcodeX", "Omi.Xamarin.Forms.BarcodeX\Omi.Xamarin.Forms.BarcodeX.csproj", "{6EB66A63-7702-4D64-8715-DC09A8D4EFCB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Omi.Xamarin.Forms.BarcodeX.Android", "Omi.Xamarin.Forms.BarcodeX.Android\Omi.Xamarin.Forms.BarcodeX.Android.csproj", "{DB880027-6685-4AA9-9AFE-5F6745BDD97E}"
 EndProject
@@ -15,7 +15,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeXSampleApp.Android",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeXSampleApp.iOS", "BarcodeXSampleApp\BarcodeXSampleApp.iOS\BarcodeXSampleApp.iOS.csproj", "{E66FFD89-A3F3-475B-ACC3-FD08E6FBAB53}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BarcodeXSampleApp", "BarcodeXSampleApp\BarcodeXSampleApp\BarcodeXSampleApp.csproj", "{65933645-CCA0-4C55-A992-D04C5BE9C4AC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BarcodeXSampleApp", "BarcodeXSampleApp\BarcodeXSampleApp\BarcodeXSampleApp.csproj", "{65933645-CCA0-4C55-A992-D04C5BE9C4AC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

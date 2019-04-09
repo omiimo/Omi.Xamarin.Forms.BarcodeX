@@ -55,9 +55,10 @@ namespace Omi.Xamarin.Forms.BarcodeX.iOS
 			if (e.NewElement == null)
 				return;
 
-			if (!InitScanner())
-				return;
 			barcodeScanner = (BarcodeScanner)Element;
+
+			if (!InitScanner(barcodeScanner.BarcodeType))
+				return;
 
 			view = new UIView(CGRect.Empty)
 			{
@@ -155,7 +156,7 @@ namespace Omi.Xamarin.Forms.BarcodeX.iOS
 
 
 
-		private bool InitScanner()
+		private bool InitScanner(BarcodeScanner.BarcodeFormat barcodeType)
 		{
 			device = AVCaptureDevice.GetDefaultDevice(AVMediaType.Video);
 			if (device == null)
@@ -178,16 +179,38 @@ namespace Omi.Xamarin.Forms.BarcodeX.iOS
 			session = new AVCaptureSession();
 			session.AddInput(input);
 			session.AddOutput(output);
-			output.MetadataObjectTypes = AVMetadataObjectType.DataMatrixCode;
+			output.MetadataObjectTypes = GetBarcodeFormat(barcodeType);
 
 			captureVideoPreviewLayer = AVCaptureVideoPreviewLayer.FromSession(session);
 			captureVideoPreviewLayer.Frame = CGRect.Empty;
 			captureVideoPreviewLayer.VideoGravity = AVLayerVideoGravity.ResizeAspectFill;
-			captureVideoPreviewLayer.Connection.VideoOrientation = GetDeviceOrientation();
-
-			
+			captureVideoPreviewLayer.Connection.VideoOrientation = GetDeviceOrientation();			
 			return true;
+		}
 
+		private AVMetadataObjectType GetBarcodeFormat(BarcodeScanner.BarcodeFormat barcodeType)
+		{
+			switch(barcodeType)
+			{
+				case BarcodeScanner.BarcodeFormat.DataMatrix:
+					return AVMetadataObjectType.DataMatrixCode;
+				case BarcodeScanner.BarcodeFormat.QrCode:
+					return AVMetadataObjectType.QRCode;
+				case BarcodeScanner.BarcodeFormat.Pdf417:
+					return AVMetadataObjectType.PDF417Code;
+				case BarcodeScanner.BarcodeFormat.Code128:
+					return AVMetadataObjectType.Code128Code;
+				case BarcodeScanner.BarcodeFormat.Code39:
+					return AVMetadataObjectType.Code39Code;
+				case BarcodeScanner.BarcodeFormat.Code93:
+					return AVMetadataObjectType.Code93Code;
+				case BarcodeScanner.BarcodeFormat.Ean13:
+					return AVMetadataObjectType.EAN13Code;
+				case BarcodeScanner.BarcodeFormat.Ean8:
+					return AVMetadataObjectType.EAN8Code;
+				default:
+					return AVMetadataObjectType.DataMatrixCode;
+			}
 		}
 
 		private void UpdateViewOnOrientationChanged(NSNotification obj)

@@ -8,6 +8,23 @@ namespace Omi.Xamarin.Forms.BarcodeX
 		public BarcodeScanner()
 		{
 		}
+		public enum BarcodeFormat
+		{
+			Unknown = 0,
+			Code128 = 1,
+			Code39 = 2,
+			Code93 = 4,
+			Codabar = 8,
+			DataMatrix = 16,
+			Ean13 = 32,
+			Ean8 = 64,
+			Itf = 128,
+			QrCode = 256,
+			UpcA = 512,
+			UpcE = 1024,
+			Pdf417 = 2048
+		}
+
 		public static readonly BindableProperty BarcodeProperty =
 			BindableProperty.Create(nameof(Barcode), typeof(string), typeof(BarcodeScanner), null, propertyChanged: OnCarcodeChanged);
 
@@ -28,7 +45,14 @@ namespace Omi.Xamarin.Forms.BarcodeX
 		public static readonly BindableProperty IsScannerActiveProperty =
 			BindableProperty.Create(nameof(IsScannerActive), typeof(bool), typeof(BarcodeScanner), false);
 
+		public static readonly BindableProperty BarcodeTypeProperty =
+			BindableProperty.Create(nameof(BarcodeType), typeof(BarcodeFormat), typeof(BarcodeScanner), BarcodeFormat.DataMatrix);
 
+		public BarcodeFormat BarcodeType
+		{
+			get { return (BarcodeFormat)GetValue(BarcodeTypeProperty); }
+			set { SetValue(BarcodeTypeProperty, value); }
+		}
 
 		/// <summary>
 		/// Start Barcode scanning process

@@ -92,6 +92,10 @@
     <Folder Include="Resources\drawable\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Omi.Xamarin.Forms.BarcodeX.Android\Omi.Xamarin.Forms.BarcodeX.Android.csproj">
+      <Project>{DB880027-6685-4AA9-9AFE-5F6745BDD97E}</Project>
+      <Name>Omi.Xamarin.Forms.BarcodeX.Android</Name>
+    </ProjectReference>
     <ProjectReference Include="..\BarcodeXSampleApp\BarcodeXSampleApp.csproj">
       <Project>{0771AE49-BE96-4BE0-8B47-B0E41D22E846}</Project>
       <Name>BarcodeXSampleApp</Name>

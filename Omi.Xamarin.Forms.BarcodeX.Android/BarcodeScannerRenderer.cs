@@ -45,11 +45,7 @@ namespace Omi.Xamarin.Forms.BarcodeX.Android
 
 			maxZoom = parameters.MaxZoom;
 
-			barcodeDetector = new BarcodeDetector.Builder(Context)
-			   .SetBarcodeFormats(BarcodeFormat.DataMatrix)
-			   .Build();
-
-			barcodeDetector.SetProcessor(this);
+			
 			cam.SetPreviewCallback(this);
 		}
 
@@ -141,8 +137,38 @@ namespace Omi.Xamarin.Forms.BarcodeX.Android
 
 			Element.MaxZoom = maxZoom;
 			Element.SlideToZoom = 1;
+
+			barcodeDetector = new BarcodeDetector.Builder(Context)
+			   .SetBarcodeFormats(GetBarcodeFormat(Element.BarcodeType))
+			   .Build();
+
+			barcodeDetector.SetProcessor(this);
 		}
 
+		private BarcodeFormat GetBarcodeFormat(BarcodeScanner.BarcodeFormat barcodeType)
+		{
+			switch (barcodeType)
+			{
+				case BarcodeScanner.BarcodeFormat.DataMatrix:
+					return BarcodeFormat.DataMatrix;
+				case BarcodeScanner.BarcodeFormat.QrCode:
+					return BarcodeFormat.QrCode;
+				case BarcodeScanner.BarcodeFormat.Pdf417:
+					return BarcodeFormat.Pdf417;
+				case BarcodeScanner.BarcodeFormat.Code128:
+					return BarcodeFormat.Code128;
+				case BarcodeScanner.BarcodeFormat.Code39:
+					return BarcodeFormat.Code39;
+				case BarcodeScanner.BarcodeFormat.Code93:
+					return BarcodeFormat.Code93;
+				case BarcodeScanner.BarcodeFormat.Ean13:
+					return BarcodeFormat.Ean13;
+				case BarcodeScanner.BarcodeFormat.Ean8:
+					return BarcodeFormat.Ean8;
+				default:
+					return BarcodeFormat.DataMatrix;
+			}
+		}
 
 		private void InitCam()
 		{
