@@ -185,13 +185,7 @@ namespace Omi.Xamarin.Forms.BarcodeX.iOS
 			captureVideoPreviewLayer.VideoGravity = AVLayerVideoGravity.ResizeAspectFill;
 			captureVideoPreviewLayer.Connection.VideoOrientation = GetDeviceOrientation();
 
-			nfloat maxzoom = input.Device.MaxAvailableVideoZoomFactor / 3;
-			if (maxzoom > 0)
-			{
-				input.Device.LockForConfiguration(out NSError err);
-				input.Device.VideoZoomFactor = (float)maxzoom;
-				input.Device.UnlockForConfiguration();
-			}
+			
 			return true;
 
 		}

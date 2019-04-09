@@ -154,13 +154,7 @@ namespace Omi.Xamarin.Forms.BarcodeX.Android
 				parameters.FocusMode = Camera.Parameters.FocusModeContinuousVideo;
 			else if (parameters.SupportedFocusModes.Contains(Camera.Parameters.FocusModeMacro))
 				parameters.FocusMode = Camera.Parameters.FocusModeMacro;
-
-			if (parameters.IsZoomSupported)
-			{
-				if ((maxZoom / 2) > 0)
-					parameters.Zoom = maxZoom / 2;
-				cam.SetParameters(parameters);
-			}
+						
 
 			cam.SetParameters(parameters);
 
